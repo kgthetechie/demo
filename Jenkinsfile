@@ -1,33 +1,37 @@
 pipeline {
     agent any
-    
+
     stages {
+        stage('Clone Code') {
+            steps {
+
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kgthetechie/demo.git']]])
+            }
+        }
+        
         stage('Build') {
             steps {
-                sh 'echo "Building..."'
-                // Add build steps here
+                // Assuming you need to build your web application, put the build commands here
+                // For example: sh 'npm install' or 'mvn package' or any build commands specific to your project
             }
         }
-        
-        stage('Test') {
+
+        stage('Deploy to Web Server') {
             steps {
-                sh 'echo "Testing..."'
-                // Add test steps here
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'echo "Deploying..."'
+                // Copy the built files to the web server directory (e.g., Apache's DocumentRoot)
+                // Replace '/path/to/apache/web/root' with the actual path of your Apache DocumentRoot
                 sh 'cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/index.html /Applications/tomcat/webapps/ROOT/index.html'
-                // Add deployment steps here
+
+
+                // Optionally, you can restart the Apache server after deploying
+                // Make sure Jenkins has sufficient permissions to restart the Apache server
+                
+                sh '/Applications/tomcat/bin/catalina.sh stop'
+                sh '/Applications/tomcat/bin/catalina.sh start'
             }
         }
-    }
-    
-    post {
+         post {
         always {
             sh 'echo "Pipeline finished"'
-        }
     }
 }
