@@ -1,1 +1,1 @@
-cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/index.html /Applications/tomcat/webapps/ROOT/index.html
+sh 'cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/index.html /Applications/tomcat/webapps/ROOT/index.html'
