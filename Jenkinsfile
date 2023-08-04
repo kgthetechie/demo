@@ -13,6 +13,7 @@ pipeline {
             steps {
                 // Assuming you need to build your web application, put the build commands here
                 // For example: sh 'npm install' or 'mvn package' or any build commands specific to your project
+                sh 'echo "Building..."'
             }
         }
 
