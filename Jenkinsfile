@@ -19,6 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo "Deploying..."'
+                sh 'cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/index.html /Applications/tomcat/webapps/ROOT/index.html'
                 // Add deployment steps here
             }
         }
