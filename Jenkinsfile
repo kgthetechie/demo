@@ -31,10 +31,11 @@ pipeline {
             }
         }
     }
-        stage('Verify')
+        stage('Verify'){
             post {
                 always {
-                    sh 'echo "Pipeline finished"'
-                }
+                sh 'echo "Pipeline finished"'
+          }
         }
+     }
 }
