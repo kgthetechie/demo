@@ -28,6 +28,7 @@ pipeline {
                 // Make sure Jenkins has sufficient permissions to restart the Apache server
                 
                 sh '/Applications/tomcat/bin/catalina.sh stop'
+                sh 'sleep 10'
                 sh '/Applications/tomcat/bin/catalina.sh start'
             }
         }
