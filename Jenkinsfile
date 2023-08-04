@@ -31,7 +31,7 @@ pipeline {
             }
         }
         stage('Verify') {
-            post {
+            steps {
                 sh 'echo "Pipeline finished"'
             }
         }
