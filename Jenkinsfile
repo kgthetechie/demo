@@ -21,7 +21,7 @@ pipeline {
             steps {
                 // Copy the built files to the web server directory (e.g., Apache's DocumentRoot)
                 // Replace '/path/to/apache/web/root' with the actual path of your Apache DocumentRoot
-                sh 'cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/index.html /Applications/tomcat/webapps/ROOT/index.html'
+                sh 'cp -r /Users/hari/.jenkins/workspace/My_Pipeline_1/* /Applications/tomcat/webapps/ROOT/'
 
 
                 // Optionally, you can restart the Apache server after deploying
