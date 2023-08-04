@@ -30,8 +30,11 @@ pipeline {
                 sh '/Applications/tomcat/bin/catalina.sh start'
             }
         }
-         post {
-        always {
-            sh 'echo "Pipeline finished"'
     }
+        stage('Verify')
+            post {
+                always {
+                    sh 'echo "Pipeline finished"'
+                }
+        }
 }
